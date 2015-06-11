@@ -39,5 +39,20 @@ $(document).ready(function(){
 	});
 	
 	//Make First Image Active
-	$('#menu ul li.product:first').addClass('active');
+	$('#menu ul li.product:first').addClass('active').siblings().addClass('inactive');
+	
+	//AutoScroll Var
+	var current = 1;
+	function autoScroll(){
+		if(current == -1) return false;
+		
+		$('#menu ul li a').eq(current%$('#menu ul li a').length).trigger('click',[true]);
+		current++;
+	}
+	
+	//Duration for Autoscroll
+	var duration = 3;
+	var itvl = setInterval(function(){
+		autoScroll();
+	},duration*1000);
 });
