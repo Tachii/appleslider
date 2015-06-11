@@ -21,7 +21,7 @@ $(document).ready(function(){
 	$('#slides').width(totalWidth);
 	
 	// Menu item Click
-	$('#menu ul li a').click(function(e, keepScroll){
+	$('#menu ul li a').click(function(e){
 		//Remove Active Class
 		$('li.product').removeClass('active').addClass('inactive');
 		//Add Active Class to parent
@@ -36,6 +36,8 @@ $(document).ready(function(){
 		
 		//Stop Aoutscroll
 		if(!autoScroll) clearInterval(itvl);
-		
 	});
+	
+	//Make First Image Active
+	$('#menu ul li.product:first').addClass('active');
 });
