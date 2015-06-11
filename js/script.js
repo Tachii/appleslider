@@ -27,16 +27,15 @@ $(document).ready(function(){
 		//Add Active Class to parent
 		$(this).parent().addClass('active');
 	
-		var pos = $(this).parent.prevAll('.product').length;
+		var pos = $(this).parent().prevAll('.product').length;
 		
-		$('#slides').stop().animate({marginLeft:-postions[pos]+'px'}, 450);
+		$('#slides').stop().animate({marginLeft:-positions[pos]+'px'}, 450);
 		
 		//Preven Default Action
 		e.preventDefault();
 		
 		//Stop Aoutscroll
 		if(!autoScroll) clearInterval(itvl);
-		
 		
 	});
 });
