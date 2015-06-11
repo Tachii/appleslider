@@ -7,7 +7,7 @@ $(document).ready(function(){
 	
 	$('#slides .slide').each(function(i){
 		//Get Slider Width
-		$positions[i] = totlaWidth;
+		positions[i] = totalWidth;
 		totalWidth += $(this).width();
 		
 		//Check width
@@ -20,9 +20,23 @@ $(document).ready(function(){
 	//Set Width
 	$('#slides').width(totalWidth);
 	
+	// Menu item Click
 	$('#menu ul li a').click(function(e, keepScroll){
 		//Remove Active Class
 		$('li.product').removeClass('active').addClass('inactive');
-		//Add Active Class to the upper sibling
+		//Add Active Class to parent
+		$(this).parent().addClass('active');
+	
+		var pos = $(this).parent.prevAll('.product').length;
+		
+		$('#slides').stop().animate({marginLeft:-postions[pos]+'px'}, 450);
+		
+		//Preven Default Action
+		e.preventDefault();
+		
+		//Stop Aoutscroll
+		if(!autoScroll) clearInterval(itvl);
+		
+		
 	});
 });
