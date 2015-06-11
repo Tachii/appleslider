@@ -21,7 +21,7 @@
 				
 				<nav id="menu">
 					<ul>
-						<li class="sep"></li>
+						<li class="sep"> </li>
 						<li class="product">
 							<a href="">
 								<img src="img/slides/device-imac-thumb.png" alt="thumbnail">
